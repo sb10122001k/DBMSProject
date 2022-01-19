@@ -30,4 +30,14 @@ public class matchRecordCLass {
     public String getResult() {
         return Result;
     }
+
+    @Override
+    public String toString() {
+        return "matchRecordCLass{" +
+                "slno=" + slno +
+                ", Player1Name='" + Player1Name + '\'' +
+                ", Player2Name='" + Player2Name + '\'' +
+                ", Result='" + Result + '\'' +
+                '}';
+    }
 }

@@ -26,7 +26,6 @@ public class matchRecord extends AppCompatActivity {
     private void featurdRecycler() {
 
         featurdRecycler.setHasFixedSize(true);
-       // featurdRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false));
 
         ArrayList<matchRecordCLass> matchRecordCLasses = new ArrayList<>();
         matchRecordCLasses.add(new matchRecordCLass(1,"Shubham","Vipul","Shubham"));
