@@ -24,8 +24,13 @@ public class FirstPage extends AppCompatActivity {
     }
 
     public void matchRecordOnClick(View view) {
-        Intent intent =new Intent(this,MainActivity.class);
+        Intent intent =new Intent(this,matchRecord.class);
         startActivity(intent);
 
+    }
+
+    public void playerRecordOnClick(View view) {
+        Intent intent =new Intent(this,playerList.class);
+        startActivity(intent);
     }
 }

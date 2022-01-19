@@ -1,4 +1,4 @@
-package com.example.datachess;
+package com.example.datachess.MatchRecord;
 
 public class matchRecordCLass {
 
@@ -7,7 +7,7 @@ public class matchRecordCLass {
     String Player2Name;
     String Result;
 
-    matchRecordCLass( int slno, String Player1Name, String Player2Name, String Result){
+    public matchRecordCLass(int slno, String Player1Name, String Player2Name, String Result){
 
         this.slno=slno;
         this.Player1Name=Player1Name;

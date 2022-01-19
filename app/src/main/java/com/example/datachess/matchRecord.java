@@ -1,11 +1,12 @@
 package com.example.datachess;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.widget.TableLayout;
+
+import com.example.datachess.MatchRecord.matchRecordCLass;
+import com.example.datachess.MatchRecord.matchrecordRVA;
 
 import java.util.ArrayList;
 

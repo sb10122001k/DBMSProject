@@ -1,6 +1,5 @@
-package com.example.datachess;
+package com.example.datachess.MatchRecord;
 
-import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.datachess.R;
 
 import java.util.ArrayList;
 
@@ -47,6 +48,12 @@ public class matchrecordRVA extends RecyclerView.Adapter<matchrecordRVA.matchRec
         holder.Player1.setText(p1);
         holder.Player2.setText(p2);
         holder.Result.setText(result);
+        holder.Result.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
     }
 
