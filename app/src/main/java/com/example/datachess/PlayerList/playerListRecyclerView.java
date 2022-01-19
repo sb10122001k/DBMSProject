@@ -49,7 +49,7 @@ public class playerListRecyclerView extends RecyclerView.Adapter<playerListRecyc
 
     @Override
     public int getItemCount() {
-        return 0;
+        return featureLoc.size();
     }
 
     public static class playerListviewHolder extends RecyclerView.ViewHolder{
