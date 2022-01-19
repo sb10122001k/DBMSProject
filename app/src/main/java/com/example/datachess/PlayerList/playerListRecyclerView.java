@@ -18,6 +18,7 @@ public class playerListRecyclerView extends RecyclerView.Adapter<playerListRecyc
     ArrayList<playerListHelperClass> featureLoc;
     public static final String TAG = "ABCD";
 
+
     public playerListRecyclerView(ArrayList<playerListHelperClass> featureLoc) {
         this.featureLoc = featureLoc;
     }
@@ -27,6 +28,7 @@ public class playerListRecyclerView extends RecyclerView.Adapter<playerListRecyc
     public playerListviewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.playerlist,parent,false);
         playerListRecyclerView.playerListviewHolder plViewHolder= new playerListRecyclerView.playerListviewHolder(view);
+        Log.d(TAG,"hi its me");
         return  plViewHolder;
     }
 
@@ -53,6 +55,7 @@ public class playerListRecyclerView extends RecyclerView.Adapter<playerListRecyc
     }
 
     public static class playerListviewHolder extends RecyclerView.ViewHolder{
+
 
         TextView name,mail,age;
 
