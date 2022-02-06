@@ -3,6 +3,8 @@ package com.example.datachess;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import com.example.datachess.PlayerList.playerListHelperClass;
@@ -27,13 +29,25 @@ public class playerList extends AppCompatActivity {
     private void featurdRecycler() {
 
         featurdRecycler.setHasFixedSize(true);
-
         ArrayList<playerListHelperClass> playerListHelperClasses =new ArrayList<>();
-        playerListHelperClasses.add(new playerListHelperClass("Shubham","Shubham@gmail.com","21Yrs"));
-        playerListHelperClasses.add(new playerListHelperClass("Shubham","Shubham@gmail.com","21Yrs"));
-        playerListHelperClasses.add(new playerListHelperClass("Shubham","Shubham@gmail.com","21Yrs"));
 
-        adapter= new playerListRecyclerView(playerListHelperClasses);
+        SQLiteDatabase chessData = this.openOrCreateDatabase("ChessData",MODE_PRIVATE,null);
+
+        Cursor c = chessData.rawQuery("SELECT * FROM PLAYERLIST",null);
+        c.moveToFirst();
+        int name=c.getColumnIndex("PLAYER_NAME");
+        int mail=c.getColumnIndex("PLAYER_MAIL");
+        int age=c.getColumnIndex("AGE");
+
+
+
+        while (!c.isAfterLast()){
+            playerListHelperClasses.add(new playerListHelperClass(c.getString(name),c.getString(mail),c.getString(age)));
+            c.moveToNext();
+        }
+
+
+        adapter= new playerListRecyclerView(playerListHelperClasses,this);
         featurdRecycler.setAdapter(adapter);
 
     }

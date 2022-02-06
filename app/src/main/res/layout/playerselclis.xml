@@ -4,52 +4,50 @@
     android:layout_width="match_parent"
     android:layout_height="160dp"
     android:background="@drawable/border3"
-    android:id="@+id/parent_layout">
+    android:id="@+id/wplsel">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:padding="10dp"
         android:src="@mipmap/ic_launcher"
-        android:id="@+id/playerImageView"/>
+        android:id="@+id/playerImageViewSel"/>
 
     <TextView
-        android:id="@+id/playerNamePl"
+        android:id="@+id/playerNamePlSel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:layout_toRightOf="@id/playerImageView"
+        android:layout_toRightOf="@id/playerImageViewSel"
         android:text="Name"
         android:textAlignment="center"
         android:textSize="30dp"
         android:textStyle="bold"
         android:textColor="#ffffff"/>
     <TextView
-        android:id="@+id/playermailPl"
+        android:id="@+id/playermailPlSel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:layout_toRightOf="@id/playerImageView"
-        android:layout_below="@id/playerNamePl"
+        android:layout_toRightOf="@id/playerImageViewSel"
+        android:layout_below="@id/playerNamePlSel"
         android:text="Name"
         android:textAlignment="center"
         android:textSize="15dp"
         android:textColor="#ffffff"/>
 
     <TextView
-        android:id="@+id/playerAgePl"
+        android:id="@+id/playerAgePlSel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:layout_toRightOf="@id/playerImageView"
-        android:layout_below="@id/playermailPl"
+        android:layout_toRightOf="@id/playerImageViewSel"
+        android:layout_below="@id/playermailPlSel"
         android:text="Name"
         android:textAlignment="center"
         android:textSize="15dp"
         android:textColor="#ffffff"/>
-
-
 </RelativeLayout>

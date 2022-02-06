@@ -1,15 +1,25 @@
 package com.example.datachess;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.datachess.Pieces.*;
+import com.example.datachess.PlayerList.playerListHelperClass;
+import com.example.datachess.PlayerList.playerListRecyclerView;
+import com.example.datachess.whitePlayerSelecRV.wpselhc;
 
 import java.util.ArrayList;
 
@@ -28,6 +38,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public ArrayList<Position[][]> LastMoves = new ArrayList<>();
     public LinearLayout pawn_choices;
     public int numberOfMoves;
+    public GridLayout grid2,grid1;
+    public String wplayer,bplayer;
+    public RelativeLayout plsel;
+    public RecyclerView w,b;
+    RecyclerView.Adapter adapter;
+    public Button wb;
 
     Piece bKing;
     Piece wKing;
@@ -68,6 +84,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Piece wPawn7;
     Piece wPawn8;
 
+    public void g(String data){
+        String a=data;
+        w.setVisibility(View.INVISIBLE);
+        plsel.setVisibility(View.INVISIBLE);
+        grid1.setVisibility(View.VISIBLE);
+        grid2.setVisibility(View.VISIBLE);
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,9 +105,73 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         game_over = (TextView)findViewById(R.id.game_over);
         pawn_choices = (LinearLayout)findViewById(R.id.pawn_chioces);
+        grid2=(GridLayout)findViewById(R.id.gridLayout2);
+        grid1=(GridLayout)findViewById(R.id.gridLayout);
+        plsel=(RelativeLayout)findViewById(R.id.plselrel);
+        w=(RecyclerView)findViewById(R.id.whiteselRV);
+        b=(RecyclerView)findViewById(R.id.blacselRV);
+        wb=(Button)findViewById(R.id.whitePlayerSel);
+
+        grid1.setVisibility(View.INVISIBLE);
+        grid2.setVisibility(View.INVISIBLE);
+        w.setVisibility(View.INVISIBLE);
+        b.setVisibility(View.INVISIBLE);
+
+        playerdetail();
+
+//        grid1.setVisibility(View.VISIBLE);
+//        grid2.setVisibility(View.VISIBLE);
 
         game_over.setVisibility(View.INVISIBLE);
         pawn_choices.setVisibility(View.INVISIBLE);
+    }
+
+    private void playerdetail() {
+        plsel.setVisibility(View.VISIBLE);
+    }
+
+    public void whitePlayerSelOnClick(View view) {
+
+        w.setVisibility(View.VISIBLE);
+        w.setHasFixedSize(true);
+        ArrayList<playerListHelperClass> playerListHelperClasses =new ArrayList<>();
+
+        SQLiteDatabase chessData = this.openOrCreateDatabase("ChessData",MODE_PRIVATE,null);
+
+        Cursor c = chessData.rawQuery("SELECT * FROM PLAYERLIST",null);
+        c.moveToFirst();
+        int name=c.getColumnIndex("PLAYER_NAME");
+        int mail=c.getColumnIndex("PLAYER_MAIL");
+        int age=c.getColumnIndex("AGE");
+
+
+
+        while (!c.isAfterLast()){
+            playerListHelperClasses.add(new playerListHelperClass(c.getString(name),c.getString(mail),c.getString(age)));
+            c.moveToNext();
+
+        }
+
+
+        adapter= new wpselhc(playerListHelperClasses,this);
+        w.setAdapter(adapter);
+
+        RecyclerView rv =(RecyclerView)findViewById(R.id.whiteselRV);
+        rv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                w.setVisibility(View.INVISIBLE);
+            }
+        });
+
+
+
+    }
+
+
+
+    public void blackPlayerSelOnClick(View view) {
+        b.setVisibility(View.VISIBLE);
     }
 
     private void initializeBoard() {
@@ -723,6 +811,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 if(Board[clickedPosition.getX()][clickedPosition.getY()].getPiece() instanceof King){
                                     if(Board[clickedPosition.getX()][clickedPosition.getY()].getPiece().isWhite() != FirstPlayerTurn){
                                         game_over.setVisibility(View.VISIBLE);
+
+                                        grid1.setVisibility(View.INVISIBLE);
+
+
                                     }
                                 }
                                 Board[clickedPosition.getX()][clickedPosition.getY()].setPiece(Board[lastPos.getX()][lastPos.getY()].getPiece());
@@ -945,6 +1037,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         isKingInDanger();
     }
+
+
 }
 
 

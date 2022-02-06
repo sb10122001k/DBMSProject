@@ -23,7 +23,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/allPlayerText"
         android:layout_centerHorizontal="true"
-        android:id="@+id/playrsListRecyclerView"/>
+        android:id="@+id/playrsListRecyclerView"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
 
 
