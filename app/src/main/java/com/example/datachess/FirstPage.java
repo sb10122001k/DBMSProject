@@ -3,6 +3,7 @@ package com.example.datachess;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
@@ -59,9 +60,11 @@ public class FirstPage extends AppCompatActivity {
         chessData.execSQL("CREATE TABLE IF NOT EXISTS MATCHRECORD(Match_id int primary Key,white varchar(50) REFERENCES PLAYERLIST(PLAYER_MAIL) ,black varchar(50) REFERENCES PLAYERLIST(PLAYER_MAIL),result VARCHAR(10))");
         chessData.execSQL("CREATE TABLE IF NOT EXISTS PLAYERRECORD(PLAYER_MAIL VARCHAR(50) REFERENCES PLAYERLIST(PLAYER_MAIL)  primary Key," +
                 "Match_Played INT(5) ,Match_Won INT(5),Match_Draw INT(5),Tot_Points INT(5))");
+        chessData.execSQL("CREATE TABLE IF NOT EXISTS Board ( X smallint NOT NULL , Y smallint NOT NULL , CONSTRAINT PK_Board PRIMARY KEY  (X,Y), CONSTRAINT CHK_Board_X_Domain CHECK (X >= 1 and X <= 8), CONSTRAINT CHK_Board_Y_Domain CHECK (Y >= 1 and Y <= 8) )");
 
         try {
-            chessData.execSQL("INSERT INTO PLAYERLIST(PLAYER_NAME,PLAYER_MAIL,AGE) VALUES ('Shubham','shubhamdj@hotmail.com',20)");
+
+        chessData.execSQL("INSERT INTO PLAYERLIST(PLAYER_NAME,PLAYER_MAIL,AGE) VALUES ('Shubham','shubhamdj@hotmail.com',20)");
         chessData.execSQL("INSERT INTO PLAYERLIST(PLAYER_NAME,PLAYER_MAIL,AGE) VALUES ('Vipul','vipulrockstar@hotmail.com',21)");
         chessData.execSQL("INSERT INTO PLAYERLIST(PLAYER_NAME,PLAYER_MAIL,AGE) VALUES ('vishwesh','vishulnd@gmail.com',20)");
         chessData.execSQL("INSERT INTO PLAYERLIST(PLAYER_NAME,PLAYER_MAIL,AGE) VALUES ('jeevitesh','jimbitensh@gmail.com',19)");
@@ -106,12 +109,111 @@ public class FirstPage extends AppCompatActivity {
         chessData.execSQL("INSERT INTO MATCHRECORD(Match_id,white,black,result) VALUES (22,'ramgini@yahoo.com','amnanya@yahoo.com.com','White')");
         chessData.execSQL("INSERT INTO MATCHRECORD(Match_id,white,black,result) VALUES (23,'vishulnd@gmail.com','jimbitensh@gmail','Draw')");
 
+            chessData.execSQL("INSERT into Board (X,y) VALUES (1, 1)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (1, 2)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (1, 3)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (1, 4)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (1, 5)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (1, 6)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (1, 7)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (1, 8)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (2, 1)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (2, 2)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (2, 3)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (2, 4)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (2, 5)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (2, 6)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (2, 7)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (2, 8)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (3, 1)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (3, 2)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (3, 3)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (3, 4)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (3, 5)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (3, 6)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (3, 7)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (3, 8)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (4, 1)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (4, 2)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (4, 3)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (4, 4)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (4, 5)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (4, 6)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (4, 7)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (4, 8)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (5, 1)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (5, 2)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (5, 3)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (5, 4)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (5, 5)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (5, 6)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (5, 7)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (5, 8)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (6, 1)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (6, 2)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (6, 3)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (6, 4)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (6, 5)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (6, 6)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (6, 7)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (6, 8)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (7, 1)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (7, 2)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (7, 3)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (7, 4)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (7, 5)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (7, 6)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (7, 7)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (7, 8)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (8, 1)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (8, 2)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (8, 3)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (8, 4)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (8, 5)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (8, 6)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (8, 7)");
+            chessData.execSQL("INSERT into Board (X,y) VALUES (8, 8)");
+
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('vipulrockstar@hotmail.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('shubhamdj@hotmail.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('vishulnd@gmail.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('jimbitensh@gmail.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('himuaaa@gmail.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('pyarilimli@gmail.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('ramgini@yahoo.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('romshamli@yahoo.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('snehpadak@yahoo.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('amnanya@yahoo.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('rumchi@yahoo.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('debumachhiwala@gmail.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('gjava@gmail.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('aditi@yahoo.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('dpr@gmail.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('lambu@gmail.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('mongu@yahoo.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('bail@yahoo.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('bhatija@gmail.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('chotisenior@yahoo.com',20,12,3)");
+
+
+
 
         } catch (Exception exception){
             Log.d(TAG="ABCD","exception:"+exception);
         }
 
-        //chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('vipulrockstar@hotmail.com',20,12,3)");
+        try{
+            chessData.execSQL("create view AllMoves as Select R.X AS X, R.Y AS Y, R.Square AS FromSquare, O.X AS Xi, O.Y AS Yi, O.Square AS ToSquare from Board R cross join Board O where R.Square != O.Square");
+            chessData.execSQL(" Create table rook as Select   FromSquare, ToSquare from AllMoves where (X = Xi or Y = Yi)");
+            chessData.execSQL(" Create table bishop as Select FromSquare, ToSquare from AllMoves where ABS(X-Xi) = ABS(Y-Yi)");
+            chessData.execSQL(" Create table knight as Select FromSquare, ToSquare from AllMoves where (ABS(X - Xi) = 2 AND ABS(Y-Yi) = 1) OR (ABS(X - Xi) = 1 AND ABS(Y-Yi) = 2)");
+            chessData.execSQL(" Create table queen as Select FromSquare, ToSquare from AllMoves  where ABS(X-Xi) = ABS(Y-Yi) union all Select FromSquare, ToSquare from AllMoves C where (X = Xi or Y = Yi)");
+            chessData.execSQL(" Create table king as Select FromSquare, ToSquare from AllMoves where ABS(X - Xi) < 2 AND  ABS(Y - Yi)  < 2 OR (Y = Yi AND X = 5 AND ABS(X-Xi) = 2 AND Y in (1,8))");
+            chessData.execSQL(" Create table pawn as Select FromSquare, ToSquare from AllMoves where  Y != Yi AND ( (ABS(X - Xi) < 2 AND  ABS(Y - Yi)  < 2) OR (X=Xi AND ((Y = 2 and Yi  = 4) OR (Y = 7 and Yi  = 5))))");
+
+        } catch (SQLException e) {
+            Log.d(TAG="ABCD","exception:"+e);
+        }
 
 
     }

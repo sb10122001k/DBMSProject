@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.datachess.Pieces.*;
 import com.example.datachess.PlayerList.playerListHelperClass;
 import com.example.datachess.PlayerList.playerListRecyclerView;
+import com.example.datachess.whitePlayerSelecRV.bpselhc;
 import com.example.datachess.whitePlayerSelecRV.wpselhc;
 
 import java.util.ArrayList;
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public int numberOfMoves;
     public GridLayout grid2,grid1;
     public String wplayer,bplayer;
-    public RelativeLayout plsel;
+    public RelativeLayout plsel,wlsel;
     public RecyclerView w,b;
     RecyclerView.Adapter adapter;
     public Button wb;
@@ -85,7 +86,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Piece wPawn8;
 
     public void g(String data){
-        String a=data;
+        wplayer=data;
+        w.setVisibility(View.INVISIBLE);
+        wb.setVisibility(View.INVISIBLE);
+//        grid1.setVisibility(View.VISIBLE);
+//        grid2.setVisibility(View.VISIBLE);
+
+    }
+    public void h(String data){
+        bplayer=data;
         w.setVisibility(View.INVISIBLE);
         plsel.setVisibility(View.INVISIBLE);
         grid1.setVisibility(View.VISIBLE);
@@ -108,9 +117,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         grid2=(GridLayout)findViewById(R.id.gridLayout2);
         grid1=(GridLayout)findViewById(R.id.gridLayout);
         plsel=(RelativeLayout)findViewById(R.id.plselrel);
+        wlsel=(RelativeLayout)findViewById(R.id.winrsel);
         w=(RecyclerView)findViewById(R.id.whiteselRV);
         b=(RecyclerView)findViewById(R.id.blacselRV);
         wb=(Button)findViewById(R.id.whitePlayerSel);
+
+
+        wlsel.setVisibility(View.INVISIBLE);
 
         grid1.setVisibility(View.INVISIBLE);
         grid2.setVisibility(View.INVISIBLE);
@@ -131,6 +144,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void whitePlayerSelOnClick(View view) {
+
 
         w.setVisibility(View.VISIBLE);
         w.setHasFixedSize(true);
@@ -153,16 +167,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
 
-        adapter= new wpselhc(playerListHelperClasses,this);
+        adapter= new wpselhc(playerListHelperClasses,this,1);
         w.setAdapter(adapter);
 
-        RecyclerView rv =(RecyclerView)findViewById(R.id.whiteselRV);
-        rv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                w.setVisibility(View.INVISIBLE);
-            }
-        });
+//
 
 
 
@@ -171,7 +179,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     public void blackPlayerSelOnClick(View view) {
-        b.setVisibility(View.VISIBLE);
+        w.setVisibility(View.VISIBLE);
+        w.setHasFixedSize(true);
+        Toast.makeText(this, "sfkljhbasjfjkasf", Toast.LENGTH_SHORT).show();
+
+        ArrayList<playerListHelperClass> playerListHelperClasses =new ArrayList<>();
+
+        SQLiteDatabase chessData = this.openOrCreateDatabase("ChessData",MODE_PRIVATE,null);
+
+        Cursor c = chessData.rawQuery("SELECT * FROM PLAYERLIST",null);
+        c.moveToFirst();
+        int name=c.getColumnIndex("PLAYER_NAME");
+        int mail=c.getColumnIndex("PLAYER_MAIL");
+        int age=c.getColumnIndex("AGE");
+
+
+
+        while (!c.isAfterLast()){
+            playerListHelperClasses.add(new playerListHelperClass(c.getString(name),c.getString(mail),c.getString(age)));
+            c.moveToNext();
+
+        }
+
+
+        adapter= new wpselhc(playerListHelperClasses,this,0);
+        w.setAdapter(adapter);
+
+
     }
 
     private void initializeBoard() {
@@ -812,7 +846,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     if(Board[clickedPosition.getX()][clickedPosition.getY()].getPiece().isWhite() != FirstPlayerTurn){
                                         game_over.setVisibility(View.VISIBLE);
 
+
                                         grid1.setVisibility(View.INVISIBLE);
+                                        grid2.setVisibility(View.INVISIBLE);
+                                        wlsel.setVisibility(View.VISIBLE);
 
 
                                     }
@@ -1039,6 +1076,69 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
+    public void whitemin(View view) {
+
+        SQLiteDatabase chessData = this.openOrCreateDatabase("ChessData",MODE_PRIVATE,null);
+        Cursor c = chessData.rawQuery("SELECT * FROM MATCHRECORD",null);
+
+        c.moveToLast();
+
+        int slnoNum=c.getColumnIndex("Match_id");
+        int e = c.getInt(slnoNum)+1;
+        chessData.execSQL("INSERT INTO MATCHRECORD(Match_id,white,black,result) VALUES ("+e+",'"+wplayer+"','"+bplayer+"',"+"'White')");
+        try{
+            Cursor d = chessData.rawQuery("SELECT * FROM PlayerRecord where Player_mail='"+wplayer+"'",null);
+            d.moveToFirst();
+
+            int win=c.getColumnIndex("Match_Won");
+            int play=c.getColumnIndex("Match_Played");
+
+            int f = c.getInt(win)+1;
+            int g = c.getInt(play)+1;
+
+
+            chessData.execSQL("Update PlayerRecord set Match_Played="+g);
+            chessData.execSQL("Update PlayerRecord set Match_Won="+f);
+
+        } catch (Exception exception) {
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('"+wplayer+"',1,1,0)");
+        }
+
+        Intent intent =new Intent(this,FirstPage.class);
+        startActivity(intent);
+    }
+
+
+    public void blacmin(View view) {
+        SQLiteDatabase chessData = this.openOrCreateDatabase("ChessData",MODE_PRIVATE,null);
+        Cursor c = chessData.rawQuery("SELECT * FROM MATCHRECORD",null);
+
+        c.moveToLast();
+
+        int slnoNum=c.getColumnIndex("Match_id");
+        int e = c.getInt(slnoNum)+1;
+        chessData.execSQL("INSERT INTO MATCHRECORD(Match_id,white,black,result) VALUES ("+e+",'"+wplayer+"','"+bplayer+"',"+"'Black')");
+        try{
+            Cursor d = chessData.rawQuery("SELECT * FROM PlayerRecord where Player_mail='"+bplayer+"'",null);
+            d.moveToFirst();
+
+            int win=c.getColumnIndex("Match_Won");
+            int play=c.getColumnIndex("Match_Played");
+
+            int f = c.getInt(win)+1;
+            int g = c.getInt(play)+1;
+
+
+            chessData.execSQL("Update PlayerRecord set Match_Played="+g);
+            chessData.execSQL("Update PlayerRecord set Match_Won="+f);
+
+        } catch (Exception exception) {
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('"+bplayer+"',1,1,0)");
+        }
+
+        Intent intent =new Intent(this,FirstPage.class);
+        startActivity(intent);
+    }
 }
 
 

@@ -65,6 +65,51 @@
                 android:id="@+id/blacselRV"
                 android:layout_marginTop="20dp"/>
         </RelativeLayout>
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        android:id="@+id/winrsel">
+        <Button
+            android:id="@+id/SelectWinner"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="40dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="20dp"
+            android:text="Select Winner"
+            android:background="@drawable/border2"
+            android:layout_centerHorizontal="true"
+            />
+
+        <Button
+            android:layout_below="@+id/SelectWinner"
+            android:id="@+id/whiteWin"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="40dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="20dp"
+            android:text="White"
+            android:background="@drawable/border2"
+            android:layout_centerHorizontal="true"
+            android:onClick="whitemin"/>
+
+
+        <Button
+            android:id="@+id/blackWin"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="40dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="20dp"
+            android:text="Black"
+            android:background="@drawable/border2"
+            android:layout_below="@+id/whiteWin"
+            android:layout_centerHorizontal="true"
+            android:onClick="blacmin"/>
+
+
+    </RelativeLayout>
     
     
 

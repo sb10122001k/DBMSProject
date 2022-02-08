@@ -1,7 +1,5 @@
 package com.example.datachess.whitePlayerSelecRV;
 
-import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,27 +13,25 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.datachess.MainActivity;
 import com.example.datachess.PlayerList.playerListHelperClass;
-import com.example.datachess.PlayerList.playerListRecyclerView;
 import com.example.datachess.R;
 
 import java.util.ArrayList;
 
-public class wpselhc extends RecyclerView.Adapter<wpselhc.playerListviewHolderLp> {
+public class bpselhc extends RecyclerView.Adapter<wpselhc.playerListviewHolderLp> {
 
     ArrayList<playerListHelperClass> featureLoc;
     MainActivity ma;
-    int num;
-   // Context context=ma;
+    // Context context=ma;
     public static final String TAG ="ABCd";
-    public wpselhc(ArrayList<playerListHelperClass> featureLoc, MainActivity mainActivity,int num) {
+    public bpselhc(ArrayList<playerListHelperClass> featureLoc, MainActivity mainActivity) {
         this.featureLoc = featureLoc;
         this.ma=mainActivity;
-        this.num=num;
     }
+
 
     @NonNull
     @Override
-    public playerListviewHolderLp onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public wpselhc.playerListviewHolderLp onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.playerselclis,parent,false);
         wpselhc.playerListviewHolderLp plViewHolder= new wpselhc.playerListviewHolderLp(view);
         //Log.d(TAG,"hi its me");
@@ -43,11 +39,11 @@ public class wpselhc extends RecyclerView.Adapter<wpselhc.playerListviewHolderLp
     }
 
     @Override
-    public void onBindViewHolder(@NonNull playerListviewHolderLp holder, int position) {
+    public void onBindViewHolder(@NonNull wpselhc.playerListviewHolderLp holder, int position) {
         playerListHelperClass playerListHelperClass= featureLoc.get(position);
         //ma = (MainActivity)context;
 
-       // Log.d(TAG, "onBindViewHolder: "+playerListHelperClass.toString());
+        // Log.d(TAG, "onBindViewHolder: "+playerListHelperClass.toString());
         //Log.d(TAG,"hi its me");
 
         String namep = playerListHelperClass.getName();
@@ -60,24 +56,16 @@ public class wpselhc extends RecyclerView.Adapter<wpselhc.playerListviewHolderLp
         holder.whplselec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Log.d("new","\n\n\n\n\n\n\n\n\n hiiiiii"+namep);
                 Log.d("new","\n\n\n\n\n\n\n\n\n hiiiiii"+mailp);
                 if(mailp!=null){
-                //String d= mailp.toString();
-               Toast.makeText(ma, " "+mailp, Toast.LENGTH_SHORT).show();
-               if(num==1)
-                ma.g(mailp);
-               else
-                   ma.h(mailp);
-            }
+                    //String d= mailp.toString();
+                    Toast.makeText(ma, " "+mailp, Toast.LENGTH_SHORT).show();
+                    ma.g(mailp);
+                }
                 else {Toast.makeText(ma, " a,snfjasjf", Toast.LENGTH_SHORT).show();
                 }    }
         });
-
-
-
-
     }
 
     @Override
