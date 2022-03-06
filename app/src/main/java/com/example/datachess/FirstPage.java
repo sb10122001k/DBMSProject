@@ -109,6 +109,30 @@ public class FirstPage extends AppCompatActivity {
         chessData.execSQL("INSERT INTO MATCHRECORD(Match_id,white,black,result) VALUES (22,'ramgini@yahoo.com','amnanya@yahoo.com.com','White')");
         chessData.execSQL("INSERT INTO MATCHRECORD(Match_id,white,black,result) VALUES (23,'vishulnd@gmail.com','jimbitensh@gmail','Draw')");
 
+
+
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('vipulrockstar@hotmail.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('shubhamdj@hotmail.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('vishulnd@gmail.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('jimbitensh@gmail.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('himuaaa@gmail.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('pyarilimli@gmail.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('ramgini@yahoo.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('romshamli@yahoo.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('snehpadak@yahoo.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('amnanya@yahoo.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('rumchi@yahoo.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('debumachhiwala@gmail.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('gjava@gmail.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('aditi@yahoo.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('dpr@gmail.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('lambu@gmail.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('mongu@yahoo.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('bail@yahoo.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('bhatija@gmail.com',20,12,3)");
+            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('chotisenior@yahoo.com',20,12,3)");
+
+
             chessData.execSQL("INSERT into Board (X,y) VALUES (1, 1)");
             chessData.execSQL("INSERT into Board (X,y) VALUES (1, 2)");
             chessData.execSQL("INSERT into Board (X,y) VALUES (1, 3)");
@@ -174,27 +198,6 @@ public class FirstPage extends AppCompatActivity {
             chessData.execSQL("INSERT into Board (X,y) VALUES (8, 7)");
             chessData.execSQL("INSERT into Board (X,y) VALUES (8, 8)");
 
-            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('vipulrockstar@hotmail.com',20,12,3)");
-            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('shubhamdj@hotmail.com',20,12,3)");
-            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('vishulnd@gmail.com',20,12,3)");
-            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('jimbitensh@gmail.com',20,12,3)");
-            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('himuaaa@gmail.com',20,12,3)");
-            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('pyarilimli@gmail.com',20,12,3)");
-            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('ramgini@yahoo.com',20,12,3)");
-            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('romshamli@yahoo.com',20,12,3)");
-            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('snehpadak@yahoo.com',20,12,3)");
-            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('amnanya@yahoo.com',20,12,3)");
-            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('rumchi@yahoo.com',20,12,3)");
-            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('debumachhiwala@gmail.com',20,12,3)");
-            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('gjava@gmail.com',20,12,3)");
-            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('aditi@yahoo.com',20,12,3)");
-            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('dpr@gmail.com',20,12,3)");
-            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('lambu@gmail.com',20,12,3)");
-            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('mongu@yahoo.com',20,12,3)");
-            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('bail@yahoo.com',20,12,3)");
-            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('bhatija@gmail.com',20,12,3)");
-            chessData.execSQL("INSERT INTO PLAYERRECORD(PLAYER_MAIL,Match_Played,Match_Won,Match_Draw ) VALUES ('chotisenior@yahoo.com',20,12,3)");
-
 
 
 
@@ -202,18 +205,35 @@ public class FirstPage extends AppCompatActivity {
             Log.d(TAG="ABCD","exception:"+exception);
         }
 
-        try{
-            chessData.execSQL("create view AllMoves as Select R.X AS X, R.Y AS Y, R.Square AS FromSquare, O.X AS Xi, O.Y AS Yi, O.Square AS ToSquare from Board R cross join Board O where R.Square != O.Square");
-            chessData.execSQL(" Create table rook as Select   FromSquare, ToSquare from AllMoves where (X = Xi or Y = Yi)");
-            chessData.execSQL(" Create table bishop as Select FromSquare, ToSquare from AllMoves where ABS(X-Xi) = ABS(Y-Yi)");
-            chessData.execSQL(" Create table knight as Select FromSquare, ToSquare from AllMoves where (ABS(X - Xi) = 2 AND ABS(Y-Yi) = 1) OR (ABS(X - Xi) = 1 AND ABS(Y-Yi) = 2)");
-            chessData.execSQL(" Create table queen as Select FromSquare, ToSquare from AllMoves  where ABS(X-Xi) = ABS(Y-Yi) union all Select FromSquare, ToSquare from AllMoves C where (X = Xi or Y = Yi)");
-            chessData.execSQL(" Create table king as Select FromSquare, ToSquare from AllMoves where ABS(X - Xi) < 2 AND  ABS(Y - Yi)  < 2 OR (Y = Yi AND X = 5 AND ABS(X-Xi) = 2 AND Y in (1,8))");
-            chessData.execSQL(" Create table pawn as Select FromSquare, ToSquare from AllMoves where  Y != Yi AND ( (ABS(X - Xi) < 2 AND  ABS(Y - Yi)  < 2) OR (X=Xi AND ((Y = 2 and Yi  = 4) OR (Y = 7 and Yi  = 5))))");
 
+        try{
+            for(int i=1;i<=8;i++){
+                chessData.execSQL("update board set square='a"+i+"' where x=1 and y="+i);
+                chessData.execSQL("update board set square='b"+i+"' where x=2 and y="+i);
+                chessData.execSQL("update board set square='c"+i+"' where x=3 and y="+i);
+                chessData.execSQL("update board set square='d"+i+"' where x=4 and y="+i);
+                chessData.execSQL("update board set square='e"+i+"' where x=5 and y="+i);
+                chessData.execSQL("update board set square='f"+i+"' where x=6 and y="+i);
+                chessData.execSQL("update board set square='g"+i+"' where x=7 and y="+i);
+                chessData.execSQL("update board set square='h"+i+"' where x=8 and y="+i);
+            }
+
+            chessData.execSQL("create  view if not exists AllMoves as Select R.X AS X, R.Y AS Y, R.Square AS FromSquare, O.X AS Xi, O.Y AS Yi, O.Square AS ToSquare from Board R cross join Board O where R.Square !=O.Square");
+            chessData.execSQL(" Create table if not exists rook as Select   FromSquare, ToSquare from AllMoves where (X = Xi or Y = Yi)");
+            chessData.execSQL(" Create table if not exists bishop as Select FromSquare, ToSquare from AllMoves where ABS(X-Xi) = ABS(Y-Yi)");
+            chessData.execSQL(" Create table if not exists knight as Select FromSquare, ToSquare from AllMoves where (ABS(X - Xi) = 2 AND ABS(Y-Yi) = 1) OR (ABS(X - Xi) = 1 AND ABS(Y-Yi) = 2)");
+            chessData.execSQL(" Create table if not exists queen as Select FromSquare, ToSquare from AllMoves  where ABS(X-Xi) = ABS(Y-Yi) union all Select FromSquare, ToSquare from AllMoves C where (X = Xi or Y = Yi)");
+            chessData.execSQL(" Create table if not exists king as Select FromSquare, ToSquare from AllMoves where ABS(X - Xi) < 2 AND  ABS(Y - Yi)  < 2 OR (Y = Yi AND X = 5 AND ABS(X-Xi) = 2 AND Y in (1,8))");
+            chessData.execSQL(" Create table if not exists pawn as Select FromSquare, ToSquare from AllMoves where  Y != Yi AND ( (ABS(X - Xi) < 2 AND  ABS(Y - Yi)  < 2) OR (X=Xi AND ((Y = 2 and Yi  = 4) OR (Y = 7 and Yi  = 5))))");
+
+
+
+//
+//
+//
         } catch (SQLException e) {
-            Log.d(TAG="ABCD","exception:"+e);
-        }
+//            Log.d(TAG="ABCD","exception:"+e);
+       }
 
 
     }
